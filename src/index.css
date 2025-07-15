@@ -1,13 +1,113 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* src/index.css */
+
+/*---------------------------------------
+  1. Import Google Fonts & CSS Variables
+---------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap');
+
+:root {
+  /* Color Palette */
+  --off-white: #FAF9F7;
+  --charcoal:  #111827;
+  --slate:     #475569;
+  --primary:   #0D9488;
+  --accent:    #F59E0B;
+
+  /* Typography */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body:    'Open Sans', sans-serif;
+
+  /* Easing */
+  --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*---------------------------------------
+  2. Base Styles and Full-Height Layout
+---------------------------------------*/
+@layer base {
+  html, body, #root {
+    height: 100%;
+    font-family: var(--font-body);
+    color: var(--charcoal);
+    background-color: var(--off-white);
+    scroll-behavior: smooth;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--charcoal);
+  }
+  p, li, a, label, span {
+    color: var(--slate);
+  }
+  a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s var(--ease-out);
+  }
+  a:hover {
+    color: var(--accent);
+  }
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #e5e7eb;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+  }
 }
+
+/*---------------------------------------
+  3. Component Utilities
+---------------------------------------*/
+@layer components {
+  /* Button Accent with Lift */
+  .btn-accent {
+    @apply inline-block px-8 py-4 rounded-lg font-heading text-white bg-accent transition-transform transition-shadow;
+    transition-timing-function: var(--ease-out);
+  }
+  .btn-accent:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Card */
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-shadow;
+  }
+  .card:hover {
+    @apply shadow-2xl;
+  }
+
+  /* Glass Effect */
+  .glass {
+    @apply bg-white/20 backdrop-blur-md border border-white/30 rounded-xl;
+  }
+
+  /* Animations */
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes slide-up {
+    from { transform: translateY(20px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+  }
+  .animate-fade-in {
+    animation: fade-in 0.8s var(--ease-out) forwards;
+  }
+  .animate-slide-up {
+    animation: slide-up 0.8s var(--ease-out) forwards;
+  }
+}
+
+/*---------------------------------------
+  4. Tailwind Directives
+---------------------------------------*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

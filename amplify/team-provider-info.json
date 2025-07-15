@@ -1,0 +1,33 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-pawansidhitest-dev-713b0-authRole",
+      "UnauthRoleArn": "arn:aws:iam::436640275421:role/amplify-pawansidhitest-dev-713b0-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::436640275421:role/amplify-pawansidhitest-dev-713b0-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-pawansidhitest-dev-713b0-deployment",
+      "UnauthRoleName": "amplify-pawansidhitest-dev-713b0-unauthRole",
+      "StackName": "amplify-pawansidhitest-dev-713b0",
+      "StackId": "arn:aws:cloudformation:ap-south-1:436640275421:stack/amplify-pawansidhitest-dev-713b0/02620a90-5fbe-11f0-8dc5-0615122f232b",
+      "AmplifyAppId": "d6tr5t7ndlehm",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-pawansidhitest-dev-713b0-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "function": {
+        "contactFormHandler": {
+          "deploymentBucketName": "amplify-pawansidhitest-dev-713b0-deployment",
+          "s3Key": "amplify-builds/contactFormHandler-795453654b4141414667-build.zip"
+        }
+      },
+      "auth": {
+        "pawansidhitest": {}
+      },
+      "api": {
+        "contactApi": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
+      }
+    }
+  }
+}
