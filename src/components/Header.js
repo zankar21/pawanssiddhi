@@ -1,13 +1,17 @@
-// src/components/Header.js
+// src/components/Header.jsx
 import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import DarkModeToggle from './DarkModeToggle';
 
 const links = [
-  { href: '#home', label: 'Home' },
-  { href: '#about', label: 'About' },
-  { href: '#services', label: 'Services' },
-  { href: '#contact', label: 'Contact' },
+  { to: '/', label: 'Home' },
+  { to: '/team', label: 'Team' },
+  { to: '/blog', label: 'Blog' },
+  { to: '/services', label: 'Services' },
+{ to: '/products', label: 'Products' },
+  { to: '/sensors', label: 'IoT Sensors' },
+  { to: '/analytics', label: 'Analytics' },
 ];
 
 export default function Header() {
@@ -29,20 +33,27 @@ export default function Header() {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6">
-        <a href="#home" className="text-2xl font-heading text-primary">
-          Pawanssiddhi
-        </a>
+        <NavLink to="/" className="text-2xl font-heading text-primary">
+          PSSPL
+        </NavLink>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">
           {links.map(link => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="relative link-underline text-base font-body text-charcoal dark:text-off-white transition-colors"
+            <NavLink
+              key={link.to}
+              to={link.to}
+              end={link.to === '/'}
+              className={({ isActive }) =>
+                `relative link-underline text-base font-body transition-colors ${
+                  isActive
+                    ? 'text-primary'
+                    : 'text-charcoal dark:text-off-white hover:text-primary'
+                }`
+              }
             >
               {link.label}
-            </a>
+            </NavLink>
           ))}
         </nav>
 
@@ -64,14 +75,21 @@ export default function Header() {
         <nav className="md:hidden bg-white/90 backdrop-blur-md">
           <div className="container mx-auto flex flex-col px-6 py-4 space-y-2">
             {links.map(link => (
-              <a
-                key={link.href}
-                href={link.href}
+              <NavLink
+                key={link.to}
+                to={link.to}
+                end={link.to === '/'}
                 onClick={() => setOpen(false)}
-                className="link-underline text-base font-body text-charcoal dark:text-off-white hover:text-primary transition-colors"
+                className={({ isActive }) =>
+                  `link-underline text-base font-body transition-colors ${
+                    isActive
+                      ? 'text-primary'
+                      : 'text-charcoal dark:text-off-white hover:text-primary'
+                  }`
+                }
               >
                 {link.label}
-              </a>
+              </NavLink>
             ))}
           </div>
         </nav>

@@ -48,6 +48,7 @@
   a:hover {
     color: var(--accent);
   }
+
   /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
@@ -88,7 +89,7 @@
     @apply bg-white/20 backdrop-blur-md border border-white/30 rounded-xl;
   }
 
-  /* Animations */
+  /* Generic Animations */
   @keyframes fade-in {
     from { opacity: 0; }
     to   { opacity: 1; }
@@ -103,6 +104,34 @@
   .animate-slide-up {
     animation: slide-up 0.8s var(--ease-out) forwards;
   }
+
+  /* Divider Animations */
+  /* Wave */
+  @keyframes divider-wave-normal { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+  @keyframes divider-wave-fast   { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+  @keyframes divider-wave-slow   { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+  .animate-divider-wave-normal { animation: divider-wave-normal 10s linear infinite; }
+  .animate-divider-wave-fast   { animation: divider-wave-fast 5s linear infinite; }
+  .animate-divider-wave-slow   { animation: divider-wave-slow 20s linear infinite; }
+
+  /* Zigzag */
+  @keyframes divider-zigzag-normal { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+  @keyframes divider-zigzag-fast   { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+  @keyframes divider-zigzag-slow   { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+  .animate-divider-zigzag-normal { animation: divider-zigzag-normal 12s linear infinite; }
+  .animate-divider-zigzag-fast   { animation: divider-zigzag-fast 6s linear infinite; }
+  .animate-divider-zigzag-slow   { animation: divider-zigzag-slow 24s linear infinite; }
+
+  /* Tilt */
+  @keyframes divider-tilt-normal { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-5%) rotate(1deg); } }
+  @keyframes divider-tilt-fast   { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-10%) rotate(2deg); } }
+  @keyframes divider-tilt-slow   { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-2%) rotate(0.5deg); } }
+
+  .animate-divider-tilt-normal { animation: divider-tilt-normal 8s ease-in-out infinite; }
+  .animate-divider-tilt-fast   { animation: divider-tilt-fast 4s ease-in-out infinite; }
+  .animate-divider-tilt-slow   { animation: divider-tilt-slow 16s ease-in-out infinite; }
 }
 
 /*---------------------------------------

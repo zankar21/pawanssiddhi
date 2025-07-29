@@ -1,48 +1,83 @@
-// src/components/FeatureGrid.js
+// src/components/FeatureGrid.jsx
 import React from 'react';
-import { ShoppingCartIcon, CubeIcon, TruckIcon } from '@heroicons/react/24/outline';
+import {
+  Cog8ToothIcon,
+  WrenchIcon,
+  ArrowPathIcon,
+  FireIcon,
+  BuildingLibraryIcon,
+  BoltIcon,
+  BriefcaseIcon,
+  ClockIcon,
+} from '@heroicons/react/24/outline';
 
-const features = [
+const services = [
   {
-    title: 'Raw Materials',
-    desc: 'High-grade steel, alloys & polymers sourced from top manufacturers.',
-    icon: ShoppingCartIcon,
+    title: 'Maintenance & Overhaul',
+    description: 'Comprehensive machinery maintenance and complete system overhauls to ensure peak performance.',
+    icon: Cog8ToothIcon,
   },
   {
-    title: 'Packaging',
-    desc: 'Secure, eco-friendly packaging solutions tailored to your needs.',
-    icon: CubeIcon,
+    title: 'Mechanical Installation',
+    description: 'Precision mechanical installation of industrial equipment with certified alignment and calibration.',
+    icon: WrenchIcon,
   },
   {
-    title: 'Logistics',
-    desc: 'On-time delivery and comprehensive tracking across the globe.',
-    icon: TruckIcon,
+    title: 'Rotating Equipment Repair',
+    description: 'Expert repair services for pumps, compressors, turbines and other rotating machinery.',
+    icon: ArrowPathIcon,
+  },
+  {
+    title: 'Welding & Fabrication',
+    description: 'Custom metal fabrication and high-quality welding solutions for all structural needs.',
+    icon: FireIcon,
+  },
+  {
+    title: 'Civil & Structural Works',
+    description: 'Robust civil construction and structural support for industrial facilities.',
+    icon: BuildingLibraryIcon,
+  },
+  {
+    title: 'Electrical & Instrumentation',
+    description: 'Advanced electrical installations and instrumentation for precise process control.',
+    icon: BoltIcon,
+  },
+  {
+    title: 'Turnkey Project Execution',
+    description: 'End-to-end project management from design to commissioning.',
+    icon: BriefcaseIcon,
+  },
+  {
+    title: '24/7 Emergency Services',
+    description: 'Round-the-clock support and rapid response to minimize downtime.',
+    icon: ClockIcon,
   },
 ];
 
 export default function FeatureGrid() {
   return (
-    <section id="services" className="bg-white py-24 scroll-snap-start">
-      <div className="container mx-auto px-6 text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-heading text-charcoal">
-          Our <span className="text-accent">Services</span>
-        </h2>
-      </div>
-      <div className="container mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {features.map((f, idx) => (
-          <div
-            key={idx}
-            className="group bg-off-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2"
-          >
-            <f.icon className="h-12 w-12 text-primary mb-4 mx-auto group-hover:text-accent transition-colors" />
-            <h3 className="text-2xl font-semibold text-charcoal mb-2 group-hover:text-accent transition-colors">
-              {f.title}
-            </h3>
-            <p className="text-gray-600 leading-relaxed">
-              {f.desc}
-            </p>
-          </div>
-        ))}
+    <section className="py-12 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <h2 className="text-3xl font-heading text-charcoal text-center mb-8">Our Service Offerings</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {services.map((service, idx) => {
+            const Icon = service.icon;
+            return (
+              <div
+                key={idx}
+                className="flex items-start space-x-6 p-6 bg-off-white rounded-lg hover:shadow-lg transition-shadow"
+              >
+                <div className="flex-shrink-0 bg-primary bg-opacity-10 p-3 rounded-full">
+                  <Icon className="h-8 w-8 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-heading text-charcoal mb-1">{service.title}</h3>
+                  <p className="text-slate">{service.description}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
