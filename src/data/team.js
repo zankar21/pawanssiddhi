@@ -1,33 +1,29 @@
 // src/data/team.js
 export const teamMembers = [
   {
-    name: 'Aarti Joshi',
-    role: 'Lead Data Scientist',
+    name: 'Mr. Navalkishor Sharma',
+    role: 'Senior Project Manager',
     photoUrl: '/images/team/aarti.jpg',
   },
   {
-    name: 'Rahul Deshpande',
-    role: 'IoT Engineer',
+    name: 'Mr. Dinesh Saraf',
+    role: 'Business Development Manager',
     photoUrl: '/images/team/rahul.jpg',
   },
   {
-    name: 'Sneha Kulkarni',
-    role: 'Front-end Developer',
+    name: 'Mr. Sagar Sharma',
+    role: 'Technical Manager(Mechanical & Civil Project',
     photoUrl: '/images/team/sneha.jpg',
   },
   {
-    name: 'Vikram Pawar',
-    role: 'DevOps Specialist',
+    name: 'Mr. Ravi Sharma',
+    role: 'Technical Manager(Electrical Project',
     photoUrl: '/images/team/vikram.jpg',
   },
   {
-    name: 'Neha Patil',
-    role: 'UX/UI Designer',
+    name: 'Mr. Prasad Jorgewar',
+    role: 'Manager',
     photoUrl: '/images/team/neha.jpg',
   },
-  {
-    name: 'Anil Shinde',
-    role: 'Project Manager',
-    photoUrl: '/images/team/anil.jpg',
-  },
+  
 ];

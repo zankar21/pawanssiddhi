@@ -9,8 +9,8 @@ const links = [
   { to: '/team', label: 'Team' },
   { to: '/blog', label: 'Blog' },
   { to: '/services', label: 'Services' },
-{ to: '/products', label: 'Products' },
-  { to: '/sensors', label: 'IoT Sensors' },
+  { to: '/products', label: 'Products' },
+  { to: '/iot-sensors', label: 'IoT Sensors' },
   { to: '/analytics', label: 'Analytics' },
 ];
 
@@ -26,31 +26,37 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all ${
+      className={`fixed w-full z-50 transition-all py-4 md:py-6 ${
         scrolled
-          ? 'bg-white/60 backdrop-blur-md shadow-md py-2'
-          : 'bg-transparent py-4'
+          ? 'bg-white/80 backdrop-blur-md shadow-lg border-b border-gray-200'
+          : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6">
-        <NavLink to="/" className="text-2xl font-heading text-primary">
+        {/* Logo with pill background */}
+        <NavLink
+          to="/"
+          className="relative z-20 bg-primary rounded-full px-6 py-2 text-white font-extrabold tracking-wide text-3xl md:text-4xl shadow-lg hover:shadow-xl transition-shadow"
+          onClick={() => setOpen(false)}
+        >
           PSSPL
         </NavLink>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
-          {links.map(link => (
+        <nav className="hidden md:flex space-x-12 font-semibold text-gray-800 tracking-wide">
+          {links.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
               end={link.to === '/'}
               className={({ isActive }) =>
-                `relative link-underline text-base font-body transition-colors ${
+                `relative pb-1 hover:text-primary transition-colors text-lg ${
                   isActive
-                    ? 'text-primary'
-                    : 'text-charcoal dark:text-off-white hover:text-primary'
+                    ? 'text-primary after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-primary'
+                    : 'text-gray-800'
                 }`
               }
+              onClick={() => setOpen(false)}
             >
               {link.label}
             </NavLink>
@@ -62,19 +68,23 @@ export default function Header() {
           <DarkModeToggle />
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden text-charcoal dark:text-off-white"
+            className="md:hidden text-gray-800"
             aria-label="Toggle menu"
           >
-            {open ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
+            {open ? (
+              <XMarkIcon className="h-6 w-6" />
+            ) : (
+              <Bars3Icon className="h-6 w-6" />
+            )}
           </button>
         </div>
       </div>
 
       {/* Mobile Navigation */}
       {open && (
-        <nav className="md:hidden bg-white/90 backdrop-blur-md">
+        <nav className="md:hidden bg-white/90 backdrop-blur-md border-t border-gray-200 shadow-lg">
           <div className="container mx-auto flex flex-col px-6 py-4 space-y-2">
-            {links.map(link => (
+            {links.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}

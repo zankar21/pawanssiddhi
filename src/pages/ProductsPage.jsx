@@ -1,15 +1,13 @@
 // src/pages/ProductsPage.jsx
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import { productCategories } from '../data/productCategories';
+import React from "react";
+import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
+import PageLayout from "../components/PageLayout";
+import { productCategories } from "../data/productCategories";
 
 export default function ProductsPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-off-white">
-      {/* SEO & Meta */}
+    <>
       <Helmet>
         <title>Industrial & Engineering Products | Maintenance Hawkeye</title>
         <meta
@@ -18,21 +16,12 @@ export default function ProductsPage() {
         />
       </Helmet>
 
-      <Header />
-
-      {/* Hero */}
-      <section className="bg-primary text-white py-20 text-center">
-        <h1 className="text-4xl font-heading mb-4">Industrial & Engineering Products</h1>
-        <p className="max-w-3xl mx-auto text-lg">
-          Everything from pumps, valves, bearings, and seals to instrumentation, piping,
-          and fasteners—sourced from leading global manufacturers and stocked
-          across our strategic warehouses for rapid delivery and minimal lead times.
-        </p>
-      </section>
-
-      {/* Product Categories List */}
-      <main className="flex-grow bg-white">
-        <div className="max-w-7xl mx-auto space-y-16 py-16 px-6 md:px-12">
+      <PageLayout
+        title="Industrial & Engineering Products"
+        description="Everything from pumps, valves, bearings, and seals to instrumentation, piping, and fasteners—sourced from leading global manufacturers and stocked across our strategic warehouses for rapid delivery and minimal lead times."
+        heroButton={null}
+      >
+        <div className="max-w-7xl mx-auto space-y-16">
           {productCategories.map((cat, idx) => (
             <article
               key={cat.id}
@@ -41,34 +30,44 @@ export default function ProductsPage() {
               {idx % 2 === 0 ? (
                 <>
                   <div>
-                    <h2 className="text-3xl font-heading text-charcoal mb-4">{cat.title}</h2>
-                    <ul className="list-disc list-inside text-slate space-y-2 mb-6">
+                    <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
+                      {cat.title}
+                    </h2>
+                    <ul className="list-disc list-inside text-gray-700 space-y-2 mb-6">
                       {cat.description.map((line, i) => (
                         <li key={i}>{line}</li>
                       ))}
                     </ul>
                     <Link
                       to={`/products/${cat.id}`}
-                      className="btn-accent inline-block py-2 px-4"
+                      className="inline-block bg-primary text-white font-semibold py-2 px-6 rounded-full shadow hover:bg-primary-dark transition"
                     >
                       Learn More
                     </Link>
                   </div>
-                  <div className="w-full h-64 bg-slate rounded-lg shadow-inner" />
+                  <div className="w-full h-64 bg-slate rounded-lg shadow-inner flex items-center justify-center text-white text-lg">
+                    {/* Placeholder for image or icon */}
+                    <span className="opacity-30">Product Image</span>
+                  </div>
                 </>
               ) : (
                 <>
-                  <div className="w-full h-64 bg-slate rounded-lg shadow-inner" />
+                  <div className="w-full h-64 bg-slate rounded-lg shadow-inner flex items-center justify-center text-white text-lg">
+                    {/* Placeholder for image or icon */}
+                    <span className="opacity-30">Product Image</span>
+                  </div>
                   <div>
-                    <h2 className="text-3xl font-heading text-charcoal mb-4">{cat.title}</h2>
-                    <ul className="list-disc list-inside text-slate space-y-2 mb-6">
+                    <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
+                      {cat.title}
+                    </h2>
+                    <ul className="list-disc list-inside text-gray-700 space-y-2 mb-6">
                       {cat.description.map((line, i) => (
                         <li key={i}>{line}</li>
                       ))}
                     </ul>
                     <Link
                       to={`/products/${cat.id}`}
-                      className="btn-accent inline-block py-2 px-4"
+                      className="inline-block bg-primary text-white font-semibold py-2 px-6 rounded-full shadow hover:bg-primary-dark transition"
                     >
                       Learn More
                     </Link>
@@ -78,9 +77,7 @@ export default function ProductsPage() {
             </article>
           ))}
         </div>
-      </main>
-
-      <Footer />
-    </div>
+      </PageLayout>
+    </>
   );
 }

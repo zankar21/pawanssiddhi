@@ -1,106 +1,83 @@
 // src/App.js
-import React from 'react';
-import './index.css';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
-import ScrollProgress from './components/ScrollProgress';
-import BackToTop from './components/BackToTop';
-import Header from './components/Header';
-import Divider from './components/Divider';
-import HeroWithForm from './components/HeroWithForm';
-import StatsSection from './components/StatsSection';
+// Import pages
+import TeamPage from "./pages/TeamPage";
+import BlogPage from "./pages/BlogPage";
+import BlogPostPage from "./pages/BlogPostPage";
+import ServicesPage from "./pages/ServicesPage";
+import IoTSensorsPage from "./pages/IoTSensorsPage";
+import DataAnalyticsPage from "./pages/DataAnalyticsPage";
+import ProductsPage from "./pages/ProductsPage";
+
+// Import About and Contact sections
 import AboutSection from './components/AboutSection';
-import PartnersSection from './components/PartnersSection';
-import BeforeAfterSlider from './components/BeforeAfterSlider';
-import TestimonialSlider from './components/TestimonialSlider';
-import ModelShowcase from './components/ModelShowcase';
-import ProcessSection from './components/ProcessSection';
 import ContactSection from './components/ContactSection';
-import Footer from './components/Footer';
 
+function HomePage() {
+  return (
+    <>
+      <section
+        className="flex flex-col items-center justify-center min-h-[80vh] w-full px-6 text-center"
+        style={{
+          background: "linear-gradient(90deg, #25b5aa 0%, #e9f5f5 100%)",
+        }}
+      >
+        <h1 className="text-5xl md:text-6xl font-extrabold text-orange-500 mb-4 drop-shadow-md">
+          Welcome to Pawanssiddhi
+        </h1>
+        <p className="font-semibold text-xl md:text-2xl mb-4 text-black drop-shadow-sm">
+          The future of industrial services,<br />delivered today.
+        </p>
 
+        <div className="flex flex-col md:flex-row gap-6 justify-center mb-8">
+          <a
+            href="/contact"
+            className="bg-orange-500 text-white text-lg md:text-xl font-bold py-3 px-8 rounded-full shadow-lg hover:bg-orange-600 transition"
+          >
+            Get a Quote
+          </a>
+          <a
+            href="/services"
+            className="border-2 border-teal-700 text-teal-700 text-lg md:text-xl font-bold py-3 px-8 rounded-full hover:bg-teal-700 hover:text-white transition"
+          >
+            Our Services
+          </a>
+        </div>
 
+        <h2 className="text-3xl md:text-4xl font-bold text-teal-700 opacity-90 drop-shadow-sm">
+          Delivering reliability. Enabling growth.
+        </h2>
+      </section>
+
+      {/* Add About and Contact sections below the hero */}
+      <AboutSection />
+      <ContactSection />
+    </>
+  );
+}
 
 export default function App() {
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Scroll progress bar */}
-      <ScrollProgress />
-
-      {/* Header */}
+    <div className="flex flex-col min-h-screen bg-off-white">
       <Header />
 
-      {/* Main content with scroll-snap sections */}
-      <main className="mt-16 space-y-0 snap-y snap-mandatory overflow-y-auto h-screen">
-        {/* Hero Section */}
-        <section className="snap-start">
-          <HeroWithForm />
-        </section>
-        <Divider color="#F3F4F6" flip />
-
-        {/* Services Preview */}
-      <section className="snap-start bg-off-white py-16 text-center">
-  <h2 className="text-3xl font-heading text-charcoal mb-4">Our Services</h2>
-  <p className="text-slate mb-6 max-w-xl mx-auto">
-    We offer a full suite of industrial services tailored to your operational needs.
-  </p>
-  <a
-    href="/services"
-    className="inline-block py-2 px-6 bg-primary text-white rounded-lg hover:bg-primary-dark transition mt-8"
-  >
-    View All Services
-  </a>
-</section>
-
-        <Divider color="#F9FAFB" wave />
-
-        {/* Stats Section */}
-        <section id="stats" className="snap-start">
-          <StatsSection />
-        </section>
-        <Divider color="#F9FAFB" wave />
-
-        {/* About Section */}
-        <section className="snap-start">
-          <AboutSection />
-        </section>
-        <Divider color="white" wave flip />
-
-        {/* Partners Section */}
-        <section className="snap-start">
-          <PartnersSection />
-        </section>
-        <Divider color="#F3F4F6" />
-
-        {/* Case Studies Section */}
-        <section className="snap-start">
-          <BeforeAfterSlider />
-        </section>
-        <Divider color="#F3F4F6" />
-
-        {/* Testimonials Section */}
-        <section className="snap-start">
-          <TestimonialSlider />
-        </section>
-        <Divider color="white" flip wave />
-
-       
-
-        {/* Process Section */}
-        <section className="snap-start">
-          <ProcessSection />
-        </section>
-        <Divider color="white" wave flip />
-
-        {/* Contact Section */}
-        <section className="snap-start">
-          <ContactSection />
-        </section>
+      <main className="flex-grow w-full">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/team" element={<TeamPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/iot-sensors" element={<IoTSensorsPage />} />
+          <Route path="/analytics" element={<DataAnalyticsPage />} />
+          <Route path="/products" element={<ProductsPage />} />
+        </Routes>
       </main>
 
-      {/* Back-to-Top Button */}
-      <BackToTop />
-
-      {/* Footer */}
       <Footer />
     </div>
   );
