@@ -62,34 +62,34 @@ export default function IndustriesSection() {
           ))}
         </div>
 
-        {/* Mobile Swiper */}
-        <div className="sm:hidden mt-10">
-          <Swiper
-            modules={[Autoplay]}
-            autoplay={{ delay: 2500, disableOnInteraction: false }}
-            loop
-            spaceBetween={20}
-            slidesPerView={1.4}
-          >
-            {industries.map((industry, index) => (
-              <SwiperSlide key={index}>
-                <div className="flex flex-col items-center">
-                  <img
-                    src={industry.logo}
-                    alt={industry.name}
-                    title={industry.name}
-                    className="h-16 sm:h-20 md:h-24 object-contain grayscale hover:grayscale-0 transition duration-300"
-                  />
-                  {industry.subItems && (
-                    <p className="text-sm text-slate-600 mt-2 text-center px-2">
-                      {industry.subItems.join(', ')}
-                    </p>
-                  )}
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+       {/* Swiper for mobile */}
+<div className="sm:hidden mt-10">
+  <Swiper
+    modules={[Autoplay]}
+    autoplay={{ delay: 2500, disableOnInteraction: false }}
+    loop
+    spaceBetween={20}
+    slidesPerView={1.4}
+  >
+    {industries.map((industry, index) => (
+      <SwiperSlide key={index}>
+        <div className="flex flex-col items-center justify-center w-full h-full">
+          <img
+            src={industry.logo}
+            alt={industry.name}
+            title={industry.name}
+            className="h-16 object-contain grayscale hover:grayscale-0 transition duration-300"
+          />
+          {industry.subItems && (
+            <p className="text-sm text-slate-600 mt-2 text-center px-2">
+              {industry.subItems.join(', ')}
+            </p>
+          )}
         </div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</div>
       </div>
     </section>
   );
