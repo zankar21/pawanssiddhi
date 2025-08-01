@@ -3,6 +3,7 @@ import React from "react";
 import PageLayout from "../components/PageLayout";
 import TeamCard from "../components/TeamCard";
 import { teamMembers } from "../data/team";
+import DirectorsSection from "../components/DirectorsSection"; // <-- NEW import
 
 export default function TeamPage() {
   return (
@@ -11,6 +12,9 @@ export default function TeamPage() {
       description="The passionate experts behind Maintenance Hawkeye."
       heroButton={null}
     >
+      {/* Directors Section */}
+      <DirectorsSection />  {/* <-- NEW: Add directors section here */}
+
       {/* Team Grid */}
       <section aria-labelledby="core-team" className="mb-16">
         <h2 id="core-team" className="text-3xl font-bold text-center mb-10 text-primary">
