@@ -13,22 +13,15 @@ const industries = [
   { name: 'Western Coalfield Limited', logo: '/logos/wcl.png' },
   {
     name: 'Mahagenco Thermal Plants',
-    subItems: [
-      'CSTPS Chandrapur',
-      'Koradi TPS',
-      'Khaperkheda TPS',
-      'Paras TPS',
-    ],
+    subItems: ['CSTPS Chandrapur', 'Koradi TPS', 'Khaperkheda TPS', 'Paras TPS'],
     logo: '/logos/mahagenco.png',
   },
 ];
 
 export default function IndustriesSection() {
   return (
-    <section
-      className="relative py-16 px-4 overflow-hidden bg-gradient-to-r from-[#e0f7fa] via-[#ffffff] to-[#e0f7fa] bg-[length:200%_200%] animate-bg-pan"
-    >
-      {/* Tailwind native radial pattern as background */}
+    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-r from-[#e0f7fa] via-[#ffffff] to-[#e0f7fa] bg-[length:200%_200%] animate-bg-pan">
+      {/* Background pattern */}
       <div
         className="absolute inset-0 bg-[radial-gradient(circle,_rgba(0,0,0,0.08)_1px,_transparent_1px)] bg-[length:20px_20px] opacity-10 z-0"
         aria-hidden="true"
@@ -39,12 +32,12 @@ export default function IndustriesSection() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-3xl sm:text-4xl font-heading font-bold text-primary mb-10 underline decoration-accent decoration-4 underline-offset-4"
+          className="text-3xl sm:text-4xl font-heading font-bold text-primary mb-16 underline decoration-accent decoration-4 underline-offset-4"
         >
           Our Clients & Industries
         </motion.h2>
 
-        {/* Grid layout for desktop */}
+        {/* Desktop Grid */}
         <div className="hidden sm:grid grid-cols-2 md:grid-cols-3 gap-8 place-items-center">
           {industries.map((industry, index) => (
             <motion.div
@@ -58,7 +51,7 @@ export default function IndustriesSection() {
                 src={industry.logo}
                 alt={industry.name}
                 title={industry.name}
-                className="h-20 object-contain grayscale hover:grayscale-0 transition duration-300 ease-in-out"
+                className="h-16 sm:h-20 md:h-24 object-contain grayscale hover:grayscale-0 transition duration-300 ease-in-out"
               />
               {industry.subItems && (
                 <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 text-sm text-gray-700 bg-white px-3 py-1 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300">
@@ -69,7 +62,7 @@ export default function IndustriesSection() {
           ))}
         </div>
 
-        {/* Swiper for mobile */}
+        {/* Mobile Swiper */}
         <div className="sm:hidden mt-10">
           <Swiper
             modules={[Autoplay]}
@@ -85,7 +78,7 @@ export default function IndustriesSection() {
                     src={industry.logo}
                     alt={industry.name}
                     title={industry.name}
-                    className="h-20 object-contain grayscale hover:grayscale-0 transition duration-300"
+                    className="h-16 sm:h-20 md:h-24 object-contain grayscale hover:grayscale-0 transition duration-300"
                   />
                   {industry.subItems && (
                     <p className="text-sm text-slate-600 mt-2 text-center px-2">
