@@ -1,13 +1,14 @@
 import React from 'react';
 import AboutSection from '../components/AboutSection';
 import ContactSection from '../components/ContactSection';
+import IndustriesSection from '../components/IndustriesSection';
 import { motion } from 'framer-motion';
 
 export default function HomePage() {
   return (
     <>
       <section
-        className="flex flex-col items-center justify-center min-h-[85vh] px-4 w-full"
+        className="flex flex-col items-center justify-center min-h-[85vh] px-4 w-full text-center sm:text-left"
         style={{
           background: "linear-gradient(90deg, #23b2a7 0%, #c9efec 100%)",
         }}
@@ -18,9 +19,8 @@ export default function HomePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-orange-500 mb-3 tracking-wide"
-          style={{ letterSpacing: "0.06em" }}
         >
-          Welcome to Pawanssiddhi
+          Welcome to <br className="sm:hidden" /> Pawanssiddhi
         </motion.h2>
 
         {/* Animated Main Heading */}
@@ -28,48 +28,46 @@ export default function HomePage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-xl sm:text-2xl md:text-3xl font-extrabold text-black mb-8 text-center max-w-3xl"
-          style={{ letterSpacing: "0.02em" }}
+          className="text-lg sm:text-2xl md:text-3xl font-extrabold text-black mb-8 text-center max-w-3xl leading-snug"
         >
-          The future of industrial services, delivered today.
+          The future of industrial services, <br className="sm:hidden" /> delivered today.
         </motion.h1>
 
-        {/* Buttons with hover animations */}
+        {/* Buttons */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-12 w-full max-w-md"
+          className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-10 w-full max-w-sm sm:max-w-md"
         >
           <a
             href="/contact"
-            className="flex-1 text-center bg-gradient-to-r from-accent to-primary text-white text-lg sm:text-xl font-bold py-3 px-6 rounded-full shadow-lg hover:from-primary hover:to-accent hover:scale-105 transform transition duration-300"
-            style={{ boxShadow: "0 6px 24px 0 rgba(36,173,155,0.18)" }}
+            className="w-full text-center bg-gradient-to-r from-accent to-primary text-white text-base sm:text-lg font-semibold py-3 px-6 rounded-full shadow-md hover:scale-105 transition"
           >
             Get a Quote
           </a>
           <a
             href="/services"
-            className="flex-1 text-center border-2 border-primary text-primary text-lg sm:text-xl font-bold py-3 px-6 rounded-full bg-white hover:bg-primary hover:text-white hover:scale-105 transform transition duration-300"
-            style={{ boxShadow: "0 6px 24px 0 rgba(36,173,155,0.10)" }}
+            className="w-full text-center border-2 border-primary text-primary text-base sm:text-lg font-semibold py-3 px-6 rounded-full bg-white hover:bg-primary hover:text-white hover:scale-105 transition"
           >
             Our Services
           </a>
         </motion.div>
 
         {/* Tagline */}
-        <motion.div
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.7 }}
-          className="text-xl sm:text-2xl md:text-3xl font-heading text-primary font-bold opacity-90 text-center max-w-3xl"
+          className="text-base sm:text-xl font-semibold text-primary opacity-90 leading-relaxed"
         >
-          Delivering reliability. Enabling growth.
-        </motion.div>
+          Delivering reliability. <br className="sm:hidden" /> Enabling growth.
+        </motion.p>
       </section>
 
-      {/* About and Contact sections */}
+      {/* Other sections */}
       <AboutSection />
+      <IndustriesSection />
       <ContactSection />
     </>
   );

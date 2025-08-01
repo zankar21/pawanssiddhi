@@ -6,12 +6,12 @@ import DarkModeToggle from './DarkModeToggle';
 
 const links = [
   { to: '/', label: 'Home' },
-  { to: '/team', label: 'Team' },
-  { to: '/blog', label: 'Blog' },
-  { to: '/services', label: 'Services' },
+{ to: '/services', label: 'Services' },
   { to: '/products', label: 'Products' },
   { to: '/iot-sensors', label: 'IoT Sensors' },
   { to: '/analytics', label: 'Analytics' },
+{ to: '/team', label: 'Team' },
+  { to: '/blog', label: 'Blog' }, 
 ];
 
 export default function Header() {
