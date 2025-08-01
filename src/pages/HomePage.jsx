@@ -2,6 +2,7 @@ import React from 'react';
 import AboutSection from '../components/AboutSection';
 import ContactSection from '../components/ContactSection';
 import IndustriesSection from '../components/IndustriesSection';
+import BusinessPartners from '../components/BusinessPartners';
 import { motion } from 'framer-motion';
 
 export default function HomePage() {
@@ -68,6 +69,7 @@ export default function HomePage() {
       {/* Other sections */}
       <AboutSection />
       <IndustriesSection />
+<BusinessPartners />
       <ContactSection />
     </>
   );
