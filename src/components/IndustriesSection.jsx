@@ -10,7 +10,7 @@ const industries = [
   { name: 'Dalmia Bharat Cement', logo: '/logos/dalmia-cement.png' },
   { name: 'Steel Authority of India Limited', logo: '/logos/sail.png' },
   { name: 'Lloyds Steel', logo: '/logos/lloyds-steel.png' },
-  { name: 'Western Coalfield Limited', logo: '/logos/western-coalfield.png' },
+  { name: 'Western Coalfield Limited', logo: '/logos/wcl.png' },
   {
     name: 'Mahagenco Thermal Plants',
     subItems: [
