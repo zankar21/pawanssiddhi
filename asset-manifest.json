@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b11bfdc7.css",
+    "main.js": "/static/js/main.3bfc6587.js",
+    "static/media/neeco.png": "/static/media/neeco.c678b047ea0f88796025.png",
+    "static/media/electrotherm.png": "/static/media/electrotherm.6179ebf6a40ad85cd5c3.png",
+    "static/media/marsh.png": "/static/media/marsh.26d09639ec5f4b84c756.png",
+    "static/media/astral.png": "/static/media/astral.838b13a44f748bf5aec9.png",
+    "static/media/paharpur.png": "/static/media/paharpur.83a883531ed8b8f88e80.png",
+    "static/media/bharat-bijlee.png": "/static/media/bharat-bijlee.dbf7bdf454aef86523a1.png",
+    "static/media/hydrocare.png": "/static/media/hydrocare.bbc87058ed344e90b1bd.png",
+    "static/media/ionexchange.png": "/static/media/ionexchange.5de930ec46bc1c03403a.png",
+    "index.html": "/index.html",
+    "main.b11bfdc7.css.map": "/static/css/main.b11bfdc7.css.map",
+    "main.3bfc6587.js.map": "/static/js/main.3bfc6587.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b11bfdc7.css",
+    "static/js/main.3bfc6587.js"
+  ]
+}
