@@ -4,24 +4,27 @@ on:
   push:
     branches: [ main ]
 
+# ✅ allow this workflow to push to the repo
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
       - run: npm ci
-      # CRA tip: CI=true (default on Actions) treats warnings as errors.
-      # Set CI=false so warnings don't stop the build.
       - run: CI=false npm run build
       - run: |
-          echo "== After build =="
-          ls -la
           echo "== build/ contents =="
           ls -la build || true
+
       - name: Push build/ to deploy branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
@@ -29,3 +32,5 @@ jobs:
           folder: build
           clean: true
           single-commit: true
+          # ✅ explicitly use the repo token
+          token: ${{ secrets.GITHUB_TOKEN }}
