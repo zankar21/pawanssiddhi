@@ -1,7 +1,9 @@
+# .github/workflows/deploy-hostinger.yml
 name: Build and push to deploy branch
 on:
   push:
     branches: [ main ]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,11 +14,18 @@ jobs:
           node-version: 20
           cache: 'npm'
       - run: npm ci
-      - run: npm run build
-      - name: Push dist/ to deploy branch
+      # CRA tip: CI=true (default on Actions) treats warnings as errors.
+      # Set CI=false so warnings don't stop the build.
+      - run: CI=false npm run build
+      - run: |
+          echo "== After build =="
+          ls -la
+          echo "== build/ contents =="
+          ls -la build || true
+      - name: Push build/ to deploy branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: deploy
-          folder: dist
+          folder: build
           clean: true
           single-commit: true
